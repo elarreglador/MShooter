@@ -7,9 +7,13 @@ def asteriscos(texto):
 	print()
 	print(" "+texto)
 	print()
-	print("**************************************************")		
+	print("**************************************************")	
+	
+# funcion pause
+def pausa():
+	print ()
+	input("Pulsa Enter para continuar...")	
 
 #MAIN
 asteriscos ("Mecanography Shooter\n By El Arreglador")
-print ()
-input("Pulsa Enter para continuar...")
+pausa()
