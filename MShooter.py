@@ -3,6 +3,8 @@
 import os
 import random
 
+
+
 # función asteriscos: Encuadra un texto
 def asteriscos(texto):
 	print("**************************************************")
@@ -33,29 +35,60 @@ def var2matrix(var):
 	varSplit = var.split(';')
 	return varSplit
 
+# funcion pinta: pinta el caracter X en la linea Y y la columna Z
+def pinta(X,Y,Z):
+	while Y > 0:
+		print ()
+		Y = Y - 1
+	while Z > 0:
+		print ("", end=" ")
+		Z = Z - 1
+	print (X)
+
 #MAIN
 cls()
 asteriscos ("Mecanography Shooter\n By El Arreglador")
 pausa()
 cls()
 
+fallos = 0
+exitos = 0
+
 matriz = var2matrix(lee("./lvl/01.txt"))
-numero=10
-while numero >= 1:
+msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
+print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
+intentos=int(matriz[0])
+while intentos >= 1: #Num de ciclos indicado en archivo del nivel
 	lenMatriz=len(matriz)-1
-	objetivo = (matriz[random.randint(0,lenMatriz)])
-	print (objetivo)
-	numero = numero - 1
+	objetivo = (matriz[random.randint(1,lenMatriz)]) #caracter que debemos pulsar
+	Y = random.randint(0,10)
+	Z = random.randint(0,80)
+	pinta (objetivo, Y, Z) #pinta el objetivo en una posicion aleatoria
+	pinta (msg,15-Y,0)
+	entrada = input()
+	if entrada == objetivo:
+		exitos = exitos + 1
+		intentos = intentos - 1
+	else:
+		fallos = fallos + 1
+	cls()
+	print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
+
 	
-
-
-
-#print (matriz)
-#print("Matriz tiene: " + str(len(matriz)) + " elementos.")
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
