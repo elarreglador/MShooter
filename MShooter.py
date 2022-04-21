@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 
 # función asteriscos
 def asteriscos(texto):
@@ -11,9 +12,16 @@ def asteriscos(texto):
 	
 # funcion pause
 def pausa():
-	print ()
-	input("Pulsa Enter para continuar...")	
+	input("\nPulsa Enter para continuar...")	
+	
+# funcion cls
+def cls():
+	if os.name == "posix":
+		os.system ("clear")
+	elif os.name == "ce" or os.name == "nt" or os.name == "dos":
+		os.system ("cls")
 
 #MAIN
+cls()
 asteriscos ("Mecanography Shooter\n By El Arreglador")
 pausa()
