@@ -50,19 +50,19 @@ cls()
 asteriscos ("Mecanography Shooter\n By El Arreglador")
 pausa()
 cls()
-
+nivel=10
+matriz = var2matrix(lee("./lvl/10.txt"))
 fallos = 0
 exitos = 0
-
-matriz = var2matrix(lee("./lvl/01.txt"))
 msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
+print (lee("./lvl/10.info"))
+print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
 intentos=int(matriz[0])
 while intentos >= 1: #Num de ciclos indicado en archivo del nivel
 	lenMatriz=len(matriz)-1
 	objetivo = (matriz[random.randint(1,lenMatriz)]) #caracter que debemos pulsar
 	Y = random.randint(0,10)
 	Z = random.randint(0,80)
-	print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
 	pinta (objetivo, Y, Z) #pinta el objetivo en una posicion aleatoria
 	pinta (msg,15-Y,0)
 	entrada = input()
@@ -72,6 +72,7 @@ while intentos >= 1: #Num de ciclos indicado en archivo del nivel
 	else:
 		fallos = fallos + 1
 	cls()
+	print (lee("./lvl/10.info"))
 	print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
 
 	

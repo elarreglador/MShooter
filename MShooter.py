@@ -50,12 +50,12 @@ cls()
 asteriscos ("Mecanography Shooter\n By El Arreglador")
 pausa()
 cls()
-
+nivel=10
+matriz = var2matrix(lee("./lvl/10.txt"))
 fallos = 0
 exitos = 0
-
-matriz = var2matrix(lee("./lvl/01.txt"))
 msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
+print (lee("./lvl/10.info"))
 print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
 intentos=int(matriz[0])
 while intentos >= 1: #Num de ciclos indicado en archivo del nivel
@@ -72,6 +72,7 @@ while intentos >= 1: #Num de ciclos indicado en archivo del nivel
 	else:
 		fallos = fallos + 1
 	cls()
+	print (lee("./lvl/10.info"))
 	print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
 
 	
