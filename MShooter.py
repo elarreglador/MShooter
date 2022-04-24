@@ -49,31 +49,37 @@ def pinta(X,Y,Z):
 cls()
 asteriscos ("Mecanography Shooter\n By El Arreglador")
 pausa()
-cls()
 nivel=10
-matriz = var2matrix(lee("./lvl/10.txt"))
-fallos = 0
-exitos = 0
-msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
-print (lee("./lvl/10.info"))
-print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
-intentos=int(matriz[0])
-while intentos >= 1: #Num de ciclos indicado en archivo del nivel
-	lenMatriz=len(matriz)-1
-	objetivo = (matriz[random.randint(1,lenMatriz)]) #caracter que debemos pulsar
-	Y = random.randint(0,10)
-	Z = random.randint(0,80)
-	pinta (objetivo, Y, Z) #pinta el objetivo en una posicion aleatoria
-	pinta (msg,15-Y,0)
-	entrada = input()
-	if entrada == objetivo:
-		exitos = exitos + 1
-		intentos = intentos - 1
-	else:
-		fallos = fallos + 1
+cls()
+while 1==1:
+	asteriscos ("Bienvenido al nivel "+str(nivel)+".")
+	print ("\n"+lee("./lvl/"+str(nivel)+".info")+"\n")
+	pausa()
 	cls()
-	print (lee("./lvl/10.info"))
+	matriz = var2matrix(lee("./lvl/"+str(nivel)+".txt"))
+	fallos = 0
+	exitos = 0
+	msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
 	print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
+	intentos=int(matriz[0])
+	while intentos >= 1: #Num de ciclos indicado en archivo del nivel
+		lenMatriz=len(matriz)-1
+		objetivo = (matriz[random.randint(1,lenMatriz)]) #caracter que debemos pulsar
+		Y = random.randint(0,10)
+		Z = random.randint(0,80)
+		pinta (objetivo, Y, Z) #pinta el objetivo en una posicion aleatoria
+		pinta (msg,15-Y,0)
+		entrada = input()
+		if entrada == objetivo:
+			exitos = exitos + 1
+			intentos = intentos - 1
+		else:
+			fallos = fallos + 1
+		cls()
+		print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
+	nivel=nivel+1
+
+
 
 	
 	
