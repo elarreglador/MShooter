@@ -2,7 +2,7 @@
 
 import os
 import random
-
+import time
 
 
 # función asteriscos: Encuadra un texto
@@ -57,6 +57,7 @@ while 1==1:
 	pausa()
 	cls()
 	matriz = var2matrix(lee("./lvl/"+str(nivel)+".txt"))
+	horainicio = time.time()
 	fallos = 0
 	exitos = 0
 	msg = "Pulsa la letra que se muestra arriba lo mas rapido que puedas y pulsa Intro con el meñique."
@@ -72,30 +73,21 @@ while 1==1:
 		entrada = input()
 		if entrada == objetivo:
 			exitos = exitos + 1
-			intentos = intentos - 1
 		else:
 			fallos = fallos + 1
+		intentos = intentos - 1
 		cls()
 		print ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos))
+	horafin = time.time()
+
+	# Estadistica
+	diferencia = horafin - horainicio
+	intDiferencia = int(diferencia)
+	pulsaciones = exitos + fallos
+	precision = (exitos * 100) / pulsaciones
+	cls()
+	asteriscos ("Exitos: " + str(exitos) + "   Fallos: " + str(fallos) + "\n Tiempo : " + str(intDiferencia) + "\n Precision: " + str(precision) + "%")
 	nivel=nivel+1
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 
