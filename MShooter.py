@@ -11,25 +11,29 @@ def asteriscos(texto):
 	print()
 	print(" "+texto)
 	print()
-	print("**************************************************")	
-	
+	print("**************************************************")
+
 # funcion pause: espera que pulses Intro
 def pausa():
-	input("\nPulsa Enter para continuar...")	
-	
+	input("\nPulsa Enter para continuar...")
+
 # funcion cls: borra la pantalla
 def cls():
 	if os.name == "posix":
 		os.system ("clear")
 	elif os.name == "ce" or os.name == "nt" or os.name == "dos":
 		os.system ("cls")
-		
+
 # funcion lee: devuelve el contenido de un archivo
 def lee(archivo):
-	with open(archivo, 'r') as file:
-		contenido = file.read().replace('\n', '')
-		return contenido
-		
+	try:
+		with open(archivo, 'r') as file:
+			contenido = file.read().replace('\n', '')
+			return contenido
+	except:
+		print ("No ha sido posible acceder al siguiente nivel. ¿Sera que no hay mas?")
+		exit()
+
 # funcion var2matrix: convierte una variable separada con ; a matriz
 def var2matrix(var):
 	varSplit = var.split(';')
